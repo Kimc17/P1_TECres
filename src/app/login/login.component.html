@@ -1,0 +1,67 @@
+<ul class="nav nav-tabs bg-dark text-white">
+    <li class="nav-item">
+      <a class="nav-link " [routerLink]="['inicio']">Buscar</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active disabled" [routerLink]="['/login']">Registrarse</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/signin']">Ingresar</a>
+      </li>
+
+   
+  </ul>
+
+<div class="container">
+        <form>
+               <div class="form-group">
+                 <label for="inputText">Nombre y apellidos</label>
+                 <input type="text" class="form-control" id="inputName" placeholder="Escriba aquí su nombre completo">
+               </div>
+               <div class="form-row">
+                  <label for="inputCed">Cédula</label>
+                  <input type="number" class="form-control" id="inputCed" placeholder="Escriba su número de ID">
+               </div>
+                <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputEmail">Email</label>
+                  <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputPassword4">Password</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputUser">Usuario</label>
+                  <input type="text" class="form-control" id="inputUser" placeholder="Escriba un nombre de usuario">
+                </div>
+                
+                
+                <div class="form-group col-md-4">
+                  <label for="inputState">Perfil de cliente</label>
+                   <select id="inputState" class="form-control">
+                     <option selected>Anunciante</option>
+                    <option>Agente</option>
+                     <option>Constructor</option>
+                     <option>Propietario</option>
+                   </select>
+                </div>
+               
+                
+                <div class="form-group">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                      Check me out
+                    </label>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-dark" ><a class="nav-link" id ="B1" [routerLink]="['/signin/cliente']">Crear cuenta</a></button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> 
+                        <a class="nav-link" [routerLink]="['/signin']">¿Ya tienes una cuenta?</a>
+    
+                      </button>
+              </form>
+</div>
+      
