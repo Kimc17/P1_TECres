@@ -23,7 +23,11 @@ export class LoginComponent implements OnInit {
   };
   vendedor: any ={
     nombre:'',
-    nacimiento: '',
+    cedula: '',
+    email:'',
+    contraseña: '',
+    usuario:'',
+    perfil:'',
   };
   constructor() { }
 
@@ -55,9 +59,12 @@ export class LoginComponent implements OnInit {
     
     this.vendedor={
       nombre:'',
-      nacimiento: '',
-    };
-    console.log(this.vendedor);
+      cedula: '',
+      email:'',
+      contraseña: '',
+      usuario:'',
+      perfil:'',
+    }
   }
   
 s
