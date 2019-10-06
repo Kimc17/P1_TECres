@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
     ingresos: '',
     ocupacion: '',
     residencia: {
-        provincia: 'Molecule Man',
-        canton: 29,    
+        provincia: '',
+        canton: '',    
     },
       
   };
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     nombre:'',
     cedula: '',
     email:'',
-    contraseña: '',
+    contrasena: '',
     usuario:'',
     perfil:'',
   };
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
       nombre:'',
       cedula: '',
       email:'',
-      contraseña: '',
+      contrasena: '',
       usuario:'',
       perfil:'',
     }
