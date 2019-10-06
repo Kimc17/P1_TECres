@@ -1,17 +1,49 @@
 <ul class="nav nav-tabs bg-dark text-white ">
         <li class="nav-item  ">
-          <a class="nav-link active disabled " [routerLink]="['inicio']">Buscar</a>
+          <a class="nav-link active disabled "
+             [routerLink]="['inicio']">Buscar</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link" [routerLink]="['login']">Registrarse</a>
+          <a class="nav-link"
+             [routerLink]="['login']">Registrarse</a>
         </li>
         <li class="nav-item ">
-            <a class="nav-link" [routerLink]="['signin']">Ingresar</a>
+          <a class="nav-link" 
+             [routerLink]="['signin']">Ingresar</a>
         </li>  
       </ul>
 
- <section class="container-fluid fondo d-flex align-items-center ">
-    <h1  class="display-1 blanco  ml-15"> TECres</h1>
+ <section class="container-fluid fondo  "> <!--align-items-center-->
+    <div class="row " > <!--align-items-start-->
+
+      
+        <div class=" col d-flex  bd-highlight  justify-content-center" style="height: 700px;">
+        <h1  class="display-1 blanco align-self-center ml-4 "> TECres</h1>
+        </div>
+
+        <div class="col">
+            <div class="input-group ">
+                <input type="text"
+                       class="form-control"
+                       placeholder="¿Qué estás buscando?"
+                       aria-label="Recipient's username"
+                       aria-describedby="button-addon2">
+
+                <div class="input-group-append">
+                <button class="btn btn-outline-secondary"
+                        type="button"
+                        [routerLink]="['busqueda']"
+                        id="button-addon2 ">Buscar
+                        
+                </button>
+                </div>
+
+              </div>
+        </div>
+    </div>
+   
+
+    
  </section>  
        
 
