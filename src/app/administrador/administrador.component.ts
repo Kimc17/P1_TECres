@@ -12,4 +12,8 @@ export class AdministradorComponent implements OnInit {
   ngOnInit() {
   }
 
+  pestanna: string[] = ['Vendedor','Inmueble','Ubicacion', 'Anuncio', 'Perfil/Cliente', 'Ocupacion', 'Administrador', 'Anuncios', 'Generar Estadítica', 'Facturación']
+
 }
+
+

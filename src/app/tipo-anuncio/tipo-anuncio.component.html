@@ -1,0 +1,42 @@
+<h1 >Tipos de Anuncio</h1>
+
+<div class="container ml-4">
+    <form class="form-inline my-2 my-lg-0">
+        <input id = "busqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar Anuncio por tipo" aria-label="Search">
+        <button type = "button" class="btn btn-outline-secondary my-2 my-sm-0"  (click) = "buscar('busqueda','i')">Buscar</button>
+    </form>
+    <button type="button" class="btn btn-outline-success" (click) = "agregar()">Agregar Nuevo Tipo de Anuncio</button>
+    <table class="table table-dark table-responsive-md table-striped">
+        <thead>
+          <tr>
+            
+            <th scope="col">Tipo de Anuncio</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Costo Diario</th>
+            
+            <th scope="col">Quitar Anuncio</th>
+          </tr>
+        </thead>
+        <tbody>
+            
+         
+          <tr *ngFor = "let anuncio of anuncios;index as i" [attr.id] = "i"  [ngClass] = "{'highlight' : anuncio.Tipo == buscar('busqueda','i')}">
+            
+            <td class="pt-3-half" contenteditable="true" (blur) = "actualizarLista(anuncio.Tipo , 'Tipo', $event)">{{anuncio.Tipo}}</td>
+            <td class="pt-3-half" contenteditable="true" (blur) = "actualizarLista(anuncio.Descripcion , 'Nombre', $event)">{{anuncio.Descripcion}}</td>
+            <td class="pt-3-half" contenteditable="true" (blur) = "actualizarLista(anuncio.CostoDiario , 'Apellido1', $event)">{{anuncio.CostoDiario}}</td>
+            
+            
+              <td>
+                <span class="table-remove">
+                  
+                    <button type="button" class="btn btn-danger btn-rounded btn-sm my-0 " (click) = "eliminar(anuncio.Tipo)">ELIMINAR</button>
+                    
+                  
+                </span>
+              </td>
+          </tr>
+     
+        </tbody>
+      </table>
+</div>
