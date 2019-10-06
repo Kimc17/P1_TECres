@@ -14,7 +14,13 @@ import { LoginComponent } from './login/login.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { SigninComponent } from './signin/signin.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
-
+import { VendedorComponent } from './vendedor/vendedor.component';
+import { InmuebleComponent } from './inmueble/inmueble.component';
+import { UbicacionComponent } from './ubicacion/ubicacion.component';
+import { TipoAnuncioComponent } from './tipo-anuncio/tipo-anuncio.component';
+import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
+import { OcupacionComponent } from './ocupacion/ocupacion.component';
+import { PadministradoresComponent } from './padministradores/padministradores.component';
 
 const routes: Routes = [
   {path: 'admin', component: AdministradorComponent},
@@ -22,6 +28,13 @@ const routes: Routes = [
   {path: 'signin/cliente', component: ClienteComponent},
   {path: 'signin', component: SigninComponent},
   {path: 'busqueda', component: BusquedaComponent},
+  {path: 'Vendedor', component: VendedorComponent},
+  {path: 'Inmueble', component: InmuebleComponent},
+  {path: 'Ubicacion', component: UbicacionComponent},
+  {path: 'Anuncio', component:TipoAnuncioComponent},
+  {path: 'Perfil/Cliente', component:PerfilClienteComponent},
+  {path: 'Ocupacion', component: OcupacionComponent},
+  {path: 'Administrador',component:PadministradoresComponent},
   {path:'',component: InicioComponent, pathMatch: 'full'},
   {path: '**', redirectTo: '/', pathMatch: 'full'}
   
@@ -40,6 +53,13 @@ const routes: Routes = [
     ClienteComponent,
     SigninComponent,
     BusquedaComponent,
+    VendedorComponent,
+    InmuebleComponent,
+    UbicacionComponent,
+    TipoAnuncioComponent,
+    PerfilClienteComponent,
+    OcupacionComponent,
+    PadministradoresComponent,
 
   ],
   imports: [
