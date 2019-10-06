@@ -1,7 +1,7 @@
 <div class="row " > <!--align-items-start-->
 
     <div class="col-3  ml-2">
-            <div class="input-group mt-4 mb-2 ">
+                <div class="input-group mt-4 mb-2 ">
                 <input type="text"
                 class="form-control"
                 placeholder="¿Qué estás buscando?"
@@ -17,11 +17,30 @@
                 </button>
                 </div>
     
-            </div>
+                </div>
 
-      <button type="button mt-4" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
+
+      <button type="button mt-4" class="col-12 btn btn-white border border-dark" data-toggle="modal" data-target="#exampleModal">
         Ubicación
       </button>
+      
+      <div class="row">
+            <h6 class="col-2 mt-3">Precio: </h6>
+            <div class="col-5 input-group mb-3 mt-3 ">
+            <input type="text" class="form-control" placeholder="Max" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class=" col-5 input-group mb-3 mt-3 ">
+             <input type="text" class="form-control" placeholder="Min" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+      </div>
+      <div class="row">
+            <h6 class="col-4  mt-3">Habitaciones: </h6>
+            <div class="col-7 input-group mb-3 mt-3 ">
+            <input type="text" class="form-control" placeholder="Cantidad" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            
+      </div>
+      
       
   
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -33,8 +52,41 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-              ...
+            <div class="row modal-body">
+
+                    <div class="form-group col-4">
+                    <label for="inputState">Provincia</label>
+                    <select id="inputState" 
+                            class="form-control"
+                            name ="provincia"
+                            [(ngModel)]="comprador.residencia.provincia">
+                       <option selected>Cartago</option>
+                       <option>San José</option>
+                       <option>Heredia</option>
+                    </select>
+                    </div>
+                    <div class="form-group col-4">
+                            <label for="inputState">Cantón</label>
+                            <select id="inputState" 
+                                    class="form-control"
+                                    name ="provincia"
+                                    [(ngModel)]="comprador.residencia.provincia">
+                               <option selected>Cartago</option>
+                               <option>San José</option>
+                               <option>Heredia</option>
+                            </select>
+                            </div>
+                            <div class="form-group col-4">
+                                    <label for="inputState">Distrito</label>
+                                    <select id="inputState" 
+                                            class="form-control"
+                                            name ="provincia"
+                                            [(ngModel)]="comprador.residencia.provincia">
+                                       <option selected>Cartago</option>
+                                       <option>San José</option>
+                                       <option>Heredia</option>
+                                    </select>
+                                    </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -60,9 +112,11 @@
                                 <p class=" col-6 font-weight-bold col-2">Ubicación: </p>
                                 <p class="card-text"> {{propiedad.ubicacion}}</p>
                             </div>
-                            <div class="row">
-                                    <p class=" col-6 font-weight-bold col-2">Precio: </p>
-                                    <p class="card-text"> {{propiedad.precio}}</p>
+                            <div class="row" >
+                                    <p class=" col-6 font-weight-bold col-2"
+                                       style="text-decoration: underline    ">Precio: </p>
+                                    <p class="card-text font-weight-bold"
+                                       style="text-decoration: underline"> {{propiedad.precio}}</p>
                                 </div>
                                         
                                 
