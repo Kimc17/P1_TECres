@@ -22,12 +22,12 @@ export class TipoAnuncioComponent implements OnInit {
     
   ]
 
-  anuncioNuevo:Array<any>= [{Nombre: "Default", Descripción: 'Default', CostoDiario:0}]
+  anuncioNuevo:Array<any>= [ {Tipo: "Default", Descripcion: 'Default', CostoDiario:0}]
 
   eliminar(tipo1:any){
     
     for (var indice = 0; indice < this.anuncios.length; indice++){
-      if(this.anuncios[indice].tipo == tipo1){
+      if(this.anuncios[indice].Tipo == tipo1){
         this.anuncios.splice(indice, 1);
       }
     }
@@ -63,7 +63,7 @@ export class TipoAnuncioComponent implements OnInit {
 
     this.imprimirLista();
     this.anuncios.push(this.anuncioNuevo[0]);
-    this.anuncioNuevo = [{Nombre: "Default", Descripcion: 'Default', CostoDiario:0}];
+    this.anuncioNuevo = [ {Tipo: "Default", Descripcion: 'Default', CostoDiario:0}];
     this.editField = null;
     
 

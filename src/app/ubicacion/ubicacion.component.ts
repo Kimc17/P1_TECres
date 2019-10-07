@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UbicacionComponent implements OnInit {
   editField: string;
+  public valorBusqueda:string;
   constructor() { }
 
   ngOnInit() {
@@ -61,6 +62,21 @@ export class UbicacionComponent implements OnInit {
     this.ubicacionNueva = [{Provincia: "Default", Canton: 'Default', Distrito:'Default',ID:0}];
     this.editField = null;
     
+
+  }
+
+  buscar(tipo1:any,id1:any){
+    this.valorBusqueda = (<HTMLInputElement>document.getElementById(tipo1)).value;
+    const elemento = (<HTMLInputElement>document.getElementById(id1));
+
+    console.log(this.valorBusqueda);
+    if(elemento==null){
+      (<HTMLInputElement>document.getElementById(tipo1)).scrollIntoView({behavior: 'smooth'});
+    }
+    else{
+      (<HTMLInputElement>document.getElementById(id1)).scrollIntoView({behavior: 'smooth'});
+    }
+    return this.valorBusqueda;
 
   }
 

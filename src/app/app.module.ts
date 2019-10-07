@@ -21,6 +21,9 @@ import { TipoAnuncioComponent } from './tipo-anuncio/tipo-anuncio.component';
 import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
 import { OcupacionComponent } from './ocupacion/ocupacion.component';
 import { PadministradoresComponent } from './padministradores/padministradores.component';
+import { AnuncioComponent } from './anuncio/anuncio.component';
+import { EstadisticaComponent } from './estadistica/estadistica.component';
+import { FacturacionComponent } from './facturacion/facturacion.component';
 
 const routes: Routes = [
   {path: 'admin', component: AdministradorComponent},
@@ -35,6 +38,9 @@ const routes: Routes = [
   {path: 'Perfil/Cliente', component:PerfilClienteComponent},
   {path: 'Ocupacion', component: OcupacionComponent},
   {path: 'Administrador',component:PadministradoresComponent},
+  {path: 'Aprobar/Anuncio',component:AnuncioComponent},
+  {path: 'Estadística', component:EstadisticaComponent},
+  {path: 'Facturación', component:FacturacionComponent},
   {path:'',component: InicioComponent, pathMatch: 'full'},
   {path: '**', redirectTo: '/', pathMatch: 'full'}
   
@@ -60,6 +66,9 @@ const routes: Routes = [
     PerfilClienteComponent,
     OcupacionComponent,
     PadministradoresComponent,
+    AnuncioComponent,
+    EstadisticaComponent,
+    FacturacionComponent,
 
   ],
   imports: [
