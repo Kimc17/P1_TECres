@@ -21,6 +21,7 @@ import { TipoAnuncioComponent } from './tipo-anuncio/tipo-anuncio.component';
 import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
 import { OcupacionComponent } from './ocupacion/ocupacion.component';
 import { PadministradoresComponent } from './padministradores/padministradores.component';
+import { AnuncioComponent } from './anuncio/anuncio.component';
 
 const routes: Routes = [
   {path: 'admin', component: AdministradorComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'signin/cliente', component: ClienteComponent},
   {path: 'signin', component: SigninComponent},
   {path: 'busqueda', component: BusquedaComponent},
+  {path: 'anuncio', component: AnuncioComponent},
   {path: 'Vendedor', component: VendedorComponent},
   {path: 'Inmueble', component: InmuebleComponent},
   {path: 'Ubicacion', component: UbicacionComponent},
@@ -60,6 +62,7 @@ const routes: Routes = [
     PerfilClienteComponent,
     OcupacionComponent,
     PadministradoresComponent,
+    AnuncioComponent,
 
   ],
   imports: [

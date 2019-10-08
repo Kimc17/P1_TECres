@@ -1,17 +1,20 @@
-<div class="row " > <!--align-items-start-->
-
-    <div class="col-3  ml-2">
+<div class="row container-fluid "  > 
+ 
+    <div class="col-3  ml-1 d-flex justify-content-center">
+        <form (ngSubmit)="buscar()" class="mt-4"  >
                 <div class="input-group mt-4 mb-2 ">
                 <input type="text"
                 class="form-control"
+                name="nombre"
+                [(ngModel)]="busquedas.nombre"
                 placeholder="¿Qué estás buscando?"
-                aria-label="Recipient's username"
+                aria-label="¿Qué estás buscando?"
                 aria-describedby="button-addon2">
     
                 <div class="input-group-append ">
                 <button class="btn btn-outline-secondary "
-                            type="button"
-                            [routerLink]="['busqueda']"
+                            type="submit"
+                            [routerLink]="['/busqueda']"
                             id="button-addon2 ">Buscar
                             
                 </button>
@@ -20,23 +23,41 @@
                 </div>
 
 
-      <button type="button mt-4" class="col-12 btn btn-white border border-dark" data-toggle="modal" data-target="#exampleModal">
+      <button type="button" class="col-12 btn btn-white border border-dark" data-toggle="modal" data-target="#exampleModal">
         Ubicación
       </button>
       
       <div class="row">
             <h6 class="col-2 mt-3">Precio: </h6>
             <div class="col-5 input-group mb-3 mt-3 ">
-            <input type="text" class="form-control" placeholder="Max" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text"
+                   class="form-control" 
+                   placeholder="Min"
+                   name="pmax"
+                   [(ngModel)]="busquedas.pmax"
+                   aria-label="Username" 
+                   aria-describedby="basic-addon1">
             </div>
             <div class=" col-5 input-group mb-3 mt-3 ">
-             <input type="text" class="form-control" placeholder="Min" aria-label="Username" aria-describedby="basic-addon1">
+             <input type="text"
+                    class="form-control" 
+                    placeholder="Max" 
+                    name="pmin"
+                    [(ngModel)]="busquedas.pmin"
+                    aria-label="Username" 
+                    aria-describedby="basic-addon1">
             </div>
       </div>
       <div class="row">
             <h6 class="col-4  mt-3">Habitaciones: </h6>
             <div class="col-7 input-group mb-3 mt-3 ">
-            <input type="text" class="form-control" placeholder="Cantidad" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" 
+                   class="form-control" 
+                   placeholder="Cantidad" 
+                   aria-label="Username" 
+                   name="habitaciones"
+                   [(ngModel)]="busquedas.habitaciones"
+                   aria-describedby="basic-addon1">
             </div>
             
       </div>
@@ -58,8 +79,10 @@
                     <label for="inputState">Provincia</label>
                     <select id="inputState" 
                             class="form-control"
-                            name ="provincia"
-                            [(ngModel)]="comprador.residencia.provincia">
+                            name="provincia"
+                            [(ngModel)]="busquedas.ubicacion.provincia"
+          
+                            >
                        <option selected>Cartago</option>
                        <option>San José</option>
                        <option>Heredia</option>
@@ -69,8 +92,9 @@
                             <label for="inputState">Cantón</label>
                             <select id="inputState" 
                                     class="form-control"
-                                    name ="provincia"
-                                    [(ngModel)]="comprador.residencia.provincia">
+                                    name="canton"
+                                    [(ngModel)]="busquedas.ubicacion.canton"
+                                   >
                                <option selected>Cartago</option>
                                <option>San José</option>
                                <option>Heredia</option>
@@ -80,8 +104,9 @@
                                     <label for="inputState">Distrito</label>
                                     <select id="inputState" 
                                             class="form-control"
-                                            name ="provincia"
-                                            [(ngModel)]="comprador.residencia.provincia">
+                                            name ="distrito"
+                                            [(ngModel)]="busquedas.ubicacion.distrito"
+                                            >
                                        <option selected>Cartago</option>
                                        <option>San José</option>
                                        <option>Heredia</option>
@@ -89,19 +114,18 @@
                                     </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-              <button type="button" class="btn btn-dark">Guardar cambios</button>
+              <button  class="btn btn-secondary" data-dismiss="modal">Listo</button>
             </div>
           </div>
         </div>
       </div>
-
+    </form>
     </div>
 
     <div class="col-8 d-flex justify-content-center">
         <ul>
-            <li *ngFor=" let propiedad of propiedades">
-                    <div class="row mt-3" style="width: 55rem;"> <!--align-items-start-->
+            <li *ngFor=" let propiedad of propiedades, index as i">
+                    <div class="row mt-3" style="width: 55rem;">
 
                         <div class="col-5">
                             <img src="{{propiedad.foto}}"class="card-img-top" alt="...">
@@ -117,14 +141,10 @@
                                        style="text-decoration: underline    ">Precio: </p>
                                     <p class="card-text font-weight-bold"
                                        style="text-decoration: underline"> {{propiedad.precio}}</p>
-                                </div>
-                                        
-                                
-                                        
+                                </div>               
                         </div>
-
                         <div class="col-3">
-                                <a href="#" class="btn btn-dark">Ir a la propiedad</a>
+                                <a (click)="cargar(i)" id="bt-ir"class="btn btn-dark" [routerLink]="['/anuncio']">Ir a la propiedad</a>
                         </div>
                   
                             

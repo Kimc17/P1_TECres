@@ -1,6 +1,9 @@
-<h1 >Ubicaciones</h1>
+<h1 style="color: chocolate" >Ubicaciones</h1>
 <div class="container ml-4">
-        <button type="button" class="btn btn-outline-success" (click) = "agregar()">Agregar Nueva Ubicación</button>
+        <button type="button" 
+                class="btn mb-1 border border-secondary" 
+                style="color: chocolate;"
+                (click) = "agregar()">Agregar Nueva Ubicación</button>
         <table class="table table-dark table-responsive-md table-striped">
             <thead>
               <tr>
@@ -27,7 +30,10 @@
                   <td>
                     <span class="table-remove">
                       
-                        <button type="button" class="btn btn-danger btn-rounded btn-sm my-0 " (click) = "eliminar(ubicacion.ID)">ELIMINAR</button>
+                        <button type="button"
+                                style="color:chocolate"  
+                                class="btn  btn-rounded btn-sm my-0 " 
+                                (click) = "eliminar(ubicacion.ID)">ELIMINAR</button>
                         
                       
                     </span>

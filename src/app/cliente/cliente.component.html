@@ -18,29 +18,50 @@
           <button type="button" class="btn btn-dark text-chocolate" (click)="show1= false; show2= false; show3=true"><img src="https://i.ibb.co/phZ4Wwj/woman-1601016-960-720.png" class="rounded mx-auto d-block img-thumbnail" alt="..."></button>
           </div>
 
+          <div class="col">
+            
+              <button  *ngIf=show1 
+                        type="button" 
+                        class="col-12 btn btn-white border border-dark" 
+                        data-toggle="modal" 
+                        data-target="#exampleModal">
+                        Agregar anuncio
+              </button>
+              <button  *ngIf=show2 
+                        type="button" 
+                        class="col-12 btn btn-white border border-dark" 
+                        data-toggle="modal" 
+                        data-target="#exampleModal">
+                        Agregar propiedad
+              </button>
+              <button  *ngIf=show13
+                        type="button" 
+                        class="col-12 btn btn-white border border-dark" 
+                        data-toggle="modal" 
+                        data-target="#exampleModal">
+                        Agregar público
+              </button>
+          </div>
+
         </div>
             
       </div>
 
 
       <div class="container" *ngIf=show1><table class="table">
-          <thead class="thead-warning">
+          <thead class="thead-warning bg-dark text-white">
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Nombre</th>
-              <th scope="col">Género</th>
-              <th scope="col">F. nacimiento</th>
-              <th scope="col">Residencia</th>
+              <th scope="col">Propiedad</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let prueba of pruebas ; index as i">
+            <tr *ngFor="let anuncio of anuncios; index as i">
               <th scope="row">{{i+1}}</th>
-              <td>{{prueba.nombre}}</td>
-              <td>{{prueba.genero}}</td>
-              <td>{{prueba.nacimiento}}</td>
-              <td>{{prueba.residencia}}</td>
-            
+              <td>{{anuncio.nombre}}</td>
+              <td>{{anuncio.propiedad.titulo}}</td>
+                          
             </tr>
             
           </tbody>
@@ -50,24 +71,107 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Género</th>
-                <th scope="col">F. nacimiento</th>
-                <th scope="col">Residencia</th>
+                <th scope="col">Título</th>
+                <th scope="col">Foto principal</th>
+                <th scope="col">Fotos</th>
+                <th scope="col">Ubicación</th>
+                <th scope="col">Precio</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let prueba of pruebas ; index as i">
+              <tr *ngFor="let propiedad of propiedades ; index as i">
                 <th scope="row">{{i}}</th>
-                <td>{{prueba.nombre}}</td>
-                <td>{{prueba.genero}}</td>
-                <td>{{prueba.nacimiento}}</td>
-                <td>{{prueba.residencia}}</td>
+                <td>{{propiedad.titulo}}</td>
+                <td><img src="{{propiedad.foto}}"class="card-img-top img-tabla-1" ></td>
+                <td><img  src="{{propiedad.fotos[0]}}"class="card-img-top  img-tabla" >
+                  <img  src="{{propiedad.fotos[1]}}"class="card-img-top img-tabla" >
+                  <img  src="{{propiedad.fotos[2]}}"class="card-img-top img-tabla" ></td>
+                <td>{{propiedad.ubicacion}}</td>
+                <td>{{propiedad.precio}}</td>
               
               </tr>
               
             </tbody>
           </table></div>
+
+          <div class="container" *ngIf=show3><table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nombre</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let publico of publicos ; index as i">
+                  <th scope="row">{{i}}</th>
+                  <td>{{publico.nombre}}</td>
+
+                </tr>
+                
+              </tbody>
+            </table></div>
+
+
+      
+      <div>
+          <form (ngSubmit)="buscar()" class="mt-4"  >
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Escriba los datos a agregar: </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="row modal-body">
+        
+                            <div class="form-group col-4">
+                            <label for="inputState">Provincia</label>
+                            <select id="inputState" 
+                                    class="form-control"
+                                  
+                  
+                                    >
+                               <option selected>Cartago</option>
+                               <option>San José</option>
+                               <option>Heredia</option>
+                            </select>
+                            </div>
+                            <div class="form-group col-4">
+                                    <label for="inputState">Cantón</label>
+                                    <select id="inputState" 
+                                            class="form-control"
+                                            
+                                           >
+                                       <option selected>Cartago</option>
+                                       <option>San José</option>
+                                       <option>Heredia</option>
+                                    </select>
+                                    </div>
+                                    <div class="form-group col-4">
+                                            <label for="inputState">Distrito</label>
+                                            <select id="inputState" 
+                                                    class="form-control"
+                              
+                                                    >
+                                                    <!--name =""
+                                                    [(ngModel)]=""-->
+                                               <option selected>Cartago</option>
+                                               <option>San José</option>
+                                               <option>Heredia</option>
+                                            </select>
+                                            </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button  class="btn btn-secondary" data-dismiss="modal">Listo</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+      </div>
+       
 
 
 

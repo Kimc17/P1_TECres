@@ -1,11 +1,21 @@
-<h1 >Vendedores</h1>
+<h1 style="color: chocolate">Vendedores</h1>
 
-<div class="container ml-4">
+<div class="container ml-4 ">
     <form class="form-inline my-2 my-lg-0">
-        <input id = "busqueda" class="form-control mr-sm-2" type="search" placeholder="Buscar Vendedor por cédula" aria-label="Search">
-        <button type = "button" class="btn btn-outline-secondary my-2 my-sm-0"  (click) = "buscar('busqueda','i')">Buscar</button>
+        <input id = "busqueda"
+               class="form-control mr-sm-2 mb-1"
+               type="search"
+               placeholder="Buscar Vendedor por cédula"
+               aria-label="Search " 
+               style="width: 8cm;">
+        <button type = "button" 
+                class="btn btn-outline-secondary  mb-1" 
+                (click) = "buscar('busqueda','i')">Buscar</button>
     </form>
-    <button type="button" class="btn btn-outline-success" (click) = "agregar()">Agregar Nuevo Vendedor</button>
+    <button type="button" 
+            class="btn  mb-1 border border-secondary"
+            style="color: chocolate;" 
+            (click) = "agregar()">Agregar Nuevo Vendedor</button>
     <table class="table table-dark table-responsive-md table-striped">
         <thead>
           <tr>
@@ -32,7 +42,10 @@
               <td>
                 <span class="table-remove">
                   
-                    <button type="button" class="btn btn-danger btn-rounded btn-sm my-0 " (click) = "eliminar(vendedor.cedula)">ELIMINAR</button>
+                    <button type="button" 
+                            style="color:chocolate"
+                            class="btn  btn-rounded btn-sm my-0 " 
+                            (click) = "eliminar(vendedor.cedula)">ELIMINAR</button>
                     
                   
                 </span>
