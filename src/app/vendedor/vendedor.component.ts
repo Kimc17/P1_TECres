@@ -30,7 +30,7 @@ export class VendedorComponent implements OnInit {
   eliminar(cedula1:any){
     
     for (var indice = 0; indice < this.vendedores.length; indice++){
-      if(this.vendedores[indice].cedula == cedula1){
+      if(this.vendedores[indice].ceula == cedula1){
         this.vendedores.splice(indice, 1);
       }
     }

@@ -22,6 +22,11 @@ import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.componen
 import { OcupacionComponent } from './ocupacion/ocupacion.component';
 import { PadministradoresComponent } from './padministradores/padministradores.component';
 import { AnuncioComponent } from './anuncio/anuncio.component';
+<<<<<<< HEAD
+=======
+import { EstadisticaComponent } from './estadistica/estadistica.component';
+import { FacturacionComponent } from './facturacion/facturacion.component';
+>>>>>>> fb68eb80e1c9a9d4a19255c2d8db446beef321f3
 
 const routes: Routes = [
   {path: 'admin', component: AdministradorComponent},
@@ -37,6 +42,9 @@ const routes: Routes = [
   {path: 'Perfil/Cliente', component:PerfilClienteComponent},
   {path: 'Ocupacion', component: OcupacionComponent},
   {path: 'Administrador',component:PadministradoresComponent},
+  {path: 'Aprobar/Anuncio',component:AnuncioComponent},
+  {path: 'Estadística', component:EstadisticaComponent},
+  {path: 'Facturación', component:FacturacionComponent},
   {path:'',component: InicioComponent, pathMatch: 'full'},
   {path: '**', redirectTo: '/', pathMatch: 'full'}
   
@@ -63,6 +71,11 @@ const routes: Routes = [
     OcupacionComponent,
     PadministradoresComponent,
     AnuncioComponent,
+<<<<<<< HEAD
+=======
+    EstadisticaComponent,
+    FacturacionComponent,
+>>>>>>> fb68eb80e1c9a9d4a19255c2d8db446beef321f3
 
   ],
   imports: [
