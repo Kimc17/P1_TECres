@@ -2,9 +2,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 
-import {FormsModule} from '@angular/forms';
+
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 //import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -22,11 +24,8 @@ import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.componen
 import { OcupacionComponent } from './ocupacion/ocupacion.component';
 import { PadministradoresComponent } from './padministradores/padministradores.component';
 import { AnuncioComponent } from './anuncio/anuncio.component';
-<<<<<<< HEAD
-=======
 import { EstadisticaComponent } from './estadistica/estadistica.component';
 import { FacturacionComponent } from './facturacion/facturacion.component';
->>>>>>> fb68eb80e1c9a9d4a19255c2d8db446beef321f3
 
 const routes: Routes = [
   {path: 'admin', component: AdministradorComponent},
@@ -71,17 +70,16 @@ const routes: Routes = [
     OcupacionComponent,
     PadministradoresComponent,
     AnuncioComponent,
-<<<<<<< HEAD
-=======
     EstadisticaComponent,
     FacturacionComponent,
->>>>>>> fb68eb80e1c9a9d4a19255c2d8db446beef321f3
+    
 
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
+    HttpClientModule,
 
   ],
   providers: [],

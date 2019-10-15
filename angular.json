@@ -24,9 +24,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css", "node_modules/crypto-js/crypto-js.js"
             ],
-            "scripts": []
+
+            "scripts": [
+              "node_modules/crypto-js/crypto-js.js"
+              
+            ]
           },
           "configurations": {
             "production": {

@@ -29,14 +29,32 @@
         <form (ngSubmit)="agregar_comprador()" class="mt-4"  >
                 
                <div class="form-group">
-               <label for="inputText">Nombre y apellidos</label>
+               <label for="inputText">Nombre </label>
                <input type="text"
                         class="form-control"
                         name="nombre"
-                        placeholder="Escriba aquí su nombre completo"
+                        placeholder="Carlos"
                         [(ngModel)]="comprador.nombre"
                         >
                </div>
+               <div class="form-group">
+                  <label for="inputText">Primer apellido</label>
+                  <input type="text"
+                           class="form-control"
+                           name="nombre"
+                           placeholder="Villalta"
+                           [(ngModel)]="comprador.apellido1"
+                           >
+                  </div>
+                  <div class="form-group">
+                      <label for="inputText">Segundo apellido</label>
+                      <input type="text"
+                               class="form-control"
+                               name="nombre"
+                               placeholder="Ramírez"
+                               [(ngModel)]="comprador.apellido2"
+                               >
+                      </div>
 
                <div class="form-group ">
                <label for="inputState">Género</label>
@@ -44,9 +62,7 @@
                        id="inputState" 
                        class="form-control"
                        [(ngModel)]="comprador.genero">
-                  <option selected>Hombre</option>
-                  <option>Mujer</option>
-                  <option>Otro</option>
+                       <option *ngFor="let genero of generos" [value]="genero.id">{{genero.nombre}}</option>
                </select>
                </div>
 
@@ -56,9 +72,11 @@
                   <input type="datetime" 
                          name="nacimiento"
                          class="form-control" 
-                         placeholder="DD/MM/AAAA"
+                         placeholder="AAAA-MM-DD"
                          [(ngModel)]="comprador.nacimiento">
                </div>
+
+               
 
             <div class="form-row ">
                <p class="col-md-12 mt-2">Residencia: </p>
@@ -67,11 +85,13 @@
                <label for="inputState">Provincia</label>
                <select id="inputState" 
                        class="form-control"
+                       (click) = "get_provincias();"
                        name ="provincia"
-                       [(ngModel)]="comprador.residencia.provincia">
-                  <option selected>Cartago</option>
-                  <option>San José</option>
-                  <option>Heredia</option>
+                       [(ngModel)]="residencia.provincia"
+                       [value]="provincias.id"
+                       (change)="get_cantones(residencia.provincia); get_distritos()"
+                       >
+                <option   *ngFor="let provincia of provincias, index as i" > {{provincias[i]}} </option>
                </select>
                </div>
 
@@ -81,10 +101,9 @@
                 <select id="inputState" 
                         class="form-control"
                         name ="canton"
-                        [(ngModel)]="comprador.residencia.canton">
-                  <option selected>Cartago</option>
-                  <option>San José</option>
-                  <option>Heredia</option>
+                        [(ngModel)]="residencia.canton"
+                        (change)="get_distritos(residencia.provincia,residencia.canton)">
+                <option *ngFor="let canton of cantones, index as i"  >{{cantones[i]}}</option>
                 </select>
                 </div>
                 
@@ -92,37 +111,40 @@
                 <div class="form-group col-md-4">
                 <label for="inputState">Distrito</label>
                 <select id="inputState" 
+                        type="number"
                         class="form-control"
-                        name ="distrito"
-                        [(ngModel)]="comprador.residencia.distrito">
-                  <option selected>Cartago</option>
-                  <option>San José</option>
-                  <option>Heredia</option>
+                        name ="comprador.id_ubicacion"
+                        [(ngModel)]= "comprador.id_ubicacion"
+                        >
+                <option *ngFor="let distrito of distritos" [value] = "distrito.id">{{distrito.distrito}}</option>
                 </select>
                 </div>
             </div>
-
 
                 <div class="form-group">
                 <label for="inputUser">Ingresos por mes</label>
                 <input type="number"
                        class="form-control" 
                        id="inputUser"
-                       placeholder="Escriba un nombre de usuario"
-                       name ="ingresos"
-                       [(ngModel)]="comprador.ingresos">
+                       placeholder="Escriba el monto en colones"
+                       name ="ingresos_mes"
+                       [(ngModel)]="comprador.ingresos_mes">
                 </div>
 
+
+                
+                
 
                 <div class="form-group">
                 <label for="inputState">Ocupación</label>
                 <select id="inputState"
+                        type="number"
                         class="form-control"
-                        name ="ocupacion"
-                        [(ngModel)]="comprador.ocupacion">
-                    <option selected>0</option>
-                    <option>1</option>
-                    <option>2</option>
+                        name ="id_ocupacion"
+                        [(ngModel)]="comprador.id_ocupacion"
+                        
+                        >
+                        <option *ngFor="let ocupacion of ocupaciones, index as i" [value]="ocupacion.identificador"  >{{ocupacion.nombre}}</option>
                     
                 </select>
                 </div>
@@ -130,8 +152,9 @@
 
                 
                 <button class ="btn btn-dark mt-3"
-                        type="submit">Crear cuenta
-                </button>
+                        (click) = "add_interesado()"
+                        type="submit">Crear cuenta</button>
+                        
 
                 <button class="navbar-toggler"
                         type="button"
@@ -157,14 +180,41 @@
             <form class="mt-4" (ngSubmit)="agregar_vendedor()">  
                  
             <div class="form-group">
-            <label for="inputText">Nombre y apellidos</label>
+            <label for="inputText">Nombre </label>
             <input type="text"
                    class="form-control"
                    name ="ocupacion"
                    [(ngModel)]="vendedor.nombre"
-                   placeholder="Escriba aquí su nombre completo">
+                   placeholder="María">
             </div>
 
+            <div class="form-group">
+                <label for="inputText">Primer apellido</label>
+                <input type="text"
+                       class="form-control"
+                       name ="apellido1"
+                       [(ngModel)]="vendedor.apellido1"
+                       placeholder="Romero">
+                </div>
+
+                <div class="form-group">
+                        <label for="inputText">Segundo apellido</label>
+                        <input type="text"
+                               class="form-control"
+                               name ="apellido2"
+                               [(ngModel)]="vendedor.apellido2"
+                               placeholder="Romero">
+                        </div>
+
+               <div class="form-group ">
+                    <label for="inputState">Nacionalidad</label>
+                    <select name ="nacionalidad"
+                            id="inputState" 
+                            class="form-control"
+                            [(ngModel)]="vendedor.nacionalidad">
+                    <option *ngFor="let gentilicio of gentilicios">{{gentilicio.nombre}}</option>
+                                </select>
+                </div>
             <div class="form-row">
             <label for="inputCed">Cédula</label>
             <input type="number"
@@ -172,7 +222,7 @@
                    id="inputCed" 
                    name ="cedula"
                    [(ngModel)]="vendedor.cedula"
-                   placeholder="Escriba su número de ID">
+                   placeholder="Sin espacios">
             </div>
 
             <div class="form-row" >
@@ -181,9 +231,9 @@
                 <input type="text" 
                        class="form-control" 
                        id="inputEmail"
-                       name ="email"
-                       [(ngModel)]="vendedor.email"
-                       placeholder="Email">
+                       name ="correo"
+                       [(ngModel)]="vendedor.correo"
+                       placeholder="example@dominio.com">
             </div>
 
             <div class="form-group col-md-6">
@@ -191,9 +241,9 @@
                 <input type="password" 
                        class="form-control"
                        id="inputPassword4"
-                       name ="contrasena"
-                       [(ngModel)]="vendedor.contrasena"
-                       placeholder="Password">
+                       name ="pass"
+                       [(ngModel)]="vendedor.pass"
+                       placeholder="">
             </div>
           </div>
                      
@@ -211,24 +261,22 @@
                      
                      
                      
-          <div class="form-group col-md-4">      
+          <div class="form-group ">      
             <label for="inputState">Perfil de cliente</label>           
-            <select id="inputState"
+            <select id="inputPerfil"
                     class="form-control"
-                    name ="perfil"
-                    [(ngModel)]="vendedor.perfil">>
+                    name ="id_perfil"
+                    [(ngModel)]="vendedor.id_perfil"
+                    >
                           
-              <option selected>Anunciante</option>         
-              <option>Agente</option>         
-              <option>Constructor</option>         
-              <option>Propietario</option>           
-              <option>Comprador</option>
+                <option   *ngFor="let perfil of perfiles, index as i "  > {{perfil.nombre}} </option>
                         
             </select>
                      
           </div>
           
           <button class ="btn btn-dark mt-3"
+                  (click) = "add_cliente()"
                   type="submit">Crear cuenta
           </button>
           
@@ -244,6 +292,8 @@
                [routerLink]="['/signin']">
                ¿Ya tienes una cuenta?</a> 
           </button>
+
+          
           
         </form>
         
@@ -252,6 +302,7 @@
     </div>
     
   </div>
+
   
   
 

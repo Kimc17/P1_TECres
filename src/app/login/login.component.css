@@ -16,3 +16,7 @@ a,a:visited, #B2, h3 {
   h3{
     margin: 3px
   }
+
+  ul{
+    list-style:none
+}

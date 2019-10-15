@@ -1,27 +1,4 @@
-<<<<<<< HEAD
 #primero {
 
     background-color: chocolate       /* Otro ejemplo */
-=======
-h1 {
-    color: black;
-    text-align: center;
-  }
-
-  table {
-    width: 80%;
-    
-    text-align: left;
-    
-  }
-
-  .pt-3-half {
-    padding-top: 1.4rem;
-
-    }
-
-    table tr.highlight {
-      background-color: rgb(61, 28, 28) !important;
-      color: #ffffff;
->>>>>>> fb68eb80e1c9a9d4a19255c2d8db446beef321f3
   }

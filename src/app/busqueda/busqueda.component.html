@@ -122,20 +122,29 @@
     </form>
     </div>
 
-    <div class="col-8 d-flex justify-content-center">
+    <div class="col-8 d-flex justify-content-center ml-5">
         <ul>
-            <li *ngFor=" let propiedad of propiedades, index as i">
+            <li *ngFor=" let propiedad of propiedades, let foto of fotos_principales, index as i">
                     <div class="row mt-3" style="width: 55rem;">
 
                         <div class="col-5">
-                            <img src="{{propiedad.foto}}"class="card-img-top" alt="...">
+                            <img src="{{foto[i].base64}}" class="card-img-top" alt="...">
                         </div>
                         <div class="col-4">
                             <h5 class="col-12 d-flex justify-content-center card-title">{{propiedad.titulo}}</h5>
                             <div class="row">
-                                <p class=" col-6 font-weight-bold col-2">Ubicación: </p>
-                                <p class="card-text"> {{propiedad.ubicacion}}</p>
+                                <p class="  font-weight-bold col-2">Ubicación: </p>
+                                <p class="card-text col-9  ml-4"> {{propiedad.distrito}}, {{propiedad.canton}}, {{propiedad.provincia}}</p>
                             </div>
+                            <div class="row">
+                              <p class=" col-6 font-weight-bold col-2">Tamaño contrucción: </p>
+                              <p class="card-text"> {{propiedad.tamano_construccion}}</p>
+                          </div>
+                          <div class="row">
+                            <p class=" col-6 font-weight-bold col-2">Tamaño de terreno: </p>
+                            <p class="card-text"> {{propiedad.tamano_terreno}}</p>
+                        </div>
+                        
                             <div class="row" >
                                     <p class=" col-6 font-weight-bold col-2"
                                        style="text-decoration: underline    ">Precio: </p>
@@ -144,12 +153,9 @@
                                 </div>               
                         </div>
                         <div class="col-3">
-                                <a (click)="cargar(i)" id="bt-ir"class="btn btn-dark" [routerLink]="['/anuncio']">Ir a la propiedad</a>
-                        </div>
-                  
-                            
-
-                            
+                                <a (click)="cargar(i)" id="bt-ir"class="btn btn-dark" >Ir a la propiedad</a>
+                                
+                        </div>    
                     </div>    
             </li>
         </ul>
@@ -158,5 +164,6 @@
     </div>
   
 </div>
+
 
 

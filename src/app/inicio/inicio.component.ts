@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PeticionesService } from '../peticiones.service';
 
 @Component({
   selector: 'app-inicio',
@@ -6,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
-
-  constructor() { }
+  propiedades:Array<any>=[];
+  
+  constructor(private data:PeticionesService) {
+  
+    data.setPropiedades();
+    
+    
+  }
+  
 
   ngOnInit() {
   }
