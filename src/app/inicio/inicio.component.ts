@@ -11,7 +11,7 @@ export class InicioComponent implements OnInit {
   
   constructor(private data:PeticionesService) {
   
-    data.setPropiedades();
+    
     
     
   }
