@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PeticionesService } from '../peticiones.service';
-import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-cliente',
@@ -13,73 +11,51 @@ export class ClienteComponent implements OnInit {
   show2: boolean = false;
   show3: boolean = false;
   
-  propiedades:Array<any>=[];
-  tiposAnuncios:Array<any>=[];
-  inmuebles:Array<any>=[];
-  anuncios:Array<any>=[];
-  publicos:Array<any>=[];
-  anuncioNuevo:Array<any>=[{visitas:0, vendedor:1,  publico:1,id_cliente:1 }];
-  l:Array<any>=[];
-  id:number;
-
- 
-
-  constructor(private data:PeticionesService, private ruta:ActivatedRoute) { 
-    this.ruta.params.subscribe(params =>{
-      console.log('CARGANDO USUARIO: ' +params['id'])
-      this.id= params['id'];
-    
-      }
-      
-   );
-   
-    
-    
-  }
+  propiedades:Array<any>=[
+    {titulo: 'Casa grande',
+     foto:'https://cdn.pixabay.com/photo/2016/11/18/17/46/architecture-1836070_960_720.jpg',
+     fotos: ['https://cdn.pixabay.com/photo/2016/12/30/07/59/kitchen-1940174__340.jpg',
+     'https://cdn.pixabay.com/photo/2016/11/19/13/06/bed-1839183_960_720.jpg',
+     'https://cdn.pixabay.com/photo/2017/09/09/18/25/living-room-2732939__340.jpg'],
+     ubicacion: 'Sus sueños',
+     precio: '$70000'},
+    { titulo: 'Apartamento individual',
+     foto:'https://cdn.pixabay.com/photo/2016/09/22/11/55/kitchen-1687121__340.jpg',
+     fotos: ['https://cdn.pixabay.com/photo/2016/12/30/07/59/kitchen-1940174__340.jpg',
+     'https://cdn.pixabay.com/photo/2016/11/19/13/06/bed-1839183_960_720.jpg',
+     'https://cdn.pixabay.com/photo/2017/09/09/18/25/living-room-2732939__340.jpg',],
+      ubicacion: 'TEC', 
+      precio: '$600'},
+    { titulo: 'Casa pequeña',
+      foto:'https://cdn.pixabay.com/photo/2013/08/30/12/56/holiday-house-177401__340.jpg',
+      fotos: ['https://cdn.pixabay.com/photo/2016/12/30/07/59/kitchen-1940174__340.jpg',
+     'https://cdn.pixabay.com/photo/2016/11/19/13/06/bed-1839183_960_720.jpg',
+     'https://cdn.pixabay.com/photo/2017/09/09/18/25/living-room-2732939__340.jpg',],
+      ubicacion: 'al frente',
+      precio: '$900'},
+    { titulo: 'Habitación compartida',
+     foto:'https://cdn.pixabay.com/photo/2015/03/26/09/42/bedroom-690129__340.jpg',
+     fotos: ['https://cdn.pixabay.com/photo/2016/12/30/07/59/kitchen-1940174__340.jpg',
+     'https://cdn.pixabay.com/photo/2016/11/19/13/06/bed-1839183_960_720.jpg',
+     'https://cdn.pixabay.com/photo/2017/09/09/18/25/living-room-2732939__340.jpg',],
+     ubicacion: 'Cerca del TEC', precio: '$200'},
+  ];
+  anuncios:Array<any>=[
+    { nombre: "Anuncio 1", propiedad: this.propiedades[0]},
+    { nombre: "Anuncio 2", propiedad: this.propiedades[1]},
+    { nombre: "Anuncio 3", propiedad: this.propiedades[2]},
+    { nombre: "Anuncio 4", propiedad: this.propiedades[3]},
+  ];
+  publicos:Array<any>=[
+    { nombre: 'joven', otro:''},
+    { nombre: 'empresarios', otro:''},
+    { nombre: 'estudiantes', otro:''},
+  ];
+  
+  constructor() { }
 
   ngOnInit() {
-
   }
-  get_propiedades(id:number){
-    this.data.getCPropiedades(id).subscribe(datos => this.propiedades= datos);
-    console.log('LAS PROPIEDADES OBTENIDAS SON: ' + this.propiedades )
- }
- get_anuncios(id:number){
-  this.data.getCAnuncios(id).subscribe(datos => this.anuncios= datos);
-}
-get_tipo_anuncio(){
-  this.data.getTipoAnuncio().subscribe(datos => this.tiposAnuncios= datos);
-  console.log(this.tiposAnuncios);
-}
-add_anuncio(){
-  this.anuncioNuevo[0].precio= this.anuncioNuevo[0].precio*1;
-  this.anuncioNuevo[0].tarjeta_credito= this.anuncioNuevo[0].tarjeta_credito*1;
-  this.anuncioNuevo[0].propiedad= this.anuncioNuevo[0].propiedad*1;
-  this.data.addAnuncio(this.anuncioNuevo[0]);
-  console.log(this.anuncioNuevo)
-}
-add2(){
-  console.log('LOS ANUNCIOS SON: ' + this.anuncioNuevo)
-}
-add(){
-
-}
-
-
-get_usuario(id:number){
-  //this.data.getUsuario(id).subscribe(datos => this.anuncio= datos);
-  //console.log('EL ANUNCIO OBTENIDO ES: ' + this.anuncio )
-}
-
-TEST(){
-    
-  this.get_propiedades(this.id);
-  this.get_anuncios(this.id);
-}
-agregar_anuncio(){
- 
-
-}
   
 
 }

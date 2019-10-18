@@ -89,9 +89,15 @@ export class LoginComponent implements OnInit {
   
   }
 
+  
+  
+
+
+
   agregar_comprador(){
     console.log(this.comprador);
 
+    
     this.comprador={
       nombre:'',
       genero:'',
@@ -104,7 +110,7 @@ export class LoginComponent implements OnInit {
     
   }
   agregar_vendedor(){
-    console.log( this.vendedor.nacionalidad);
+    console.log('Soy yo ' + this.vendedor.nacionalidad);
     this.vendedor={
       nombre:'',
       apellido1:'',
@@ -176,7 +182,7 @@ export class LoginComponent implements OnInit {
     }
 
     encriptar(){
-      
+      this.vendedor.pass = CryptoJS.AES.encrypt(this.plainText.trim(), this.encPassword.trim()).toString();
     
       
     }
@@ -195,9 +201,8 @@ export class LoginComponent implements OnInit {
         alert("Necesitamos que brindes toda la información para continuar!");
       } 
       else{
-        this.vendedor.pass = CryptoJS.AES.encrypt(this.plainText.trim(), this.encPassword.trim()).toString();
       
-        this.data.addCliente(this.vendedor).subscribe();
+      this.data.addCliente(this.vendedor).subscribe();
       
       //console.log('Desencriptado'+ CryptoJS.AES.decrypt(this.vendedor.pass.trim(), this.encPassword.trim()).toString(CryptoJS.enc.Utf8));
       } 
